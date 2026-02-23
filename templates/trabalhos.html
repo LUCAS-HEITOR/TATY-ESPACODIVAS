@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nossos Trabalhos - Taty Espaço Divas{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title">Nossos Trabalhos</h1>
+        <p class="page-subtitle">Confira a galeria de trabalhos realizados com muito carinho e dedicação!</p>
+    </div>
+</section>
+
+<!-- Galeria de Trabalhos -->
+<section class="portfolio-section">
+    <div class="container">
+        {% if trabalhos %}
+        <div class="portfolio-grid">
+            {% for trabalho in trabalhos %}
+            <div class="portfolio-item" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:'100' }}">
+                <div class="portfolio-image">
+                    <img src="{{ trabalho.imagem.url }}" alt="{{ trabalho.titulo }}">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-info">
+                            <h3>{{ trabalho.titulo }}</h3>
+                            {% if trabalho.descricao %}
+                            <p>{{ trabalho.descricao|truncatewords:15 }}</p>
+                            {% endif %}
+                            {% if trabalho.servico %}
+                            <span class="portfolio-tag">
+                                <i class="fas fa-tag"></i> {{ trabalho.servico.nome }}
+                            </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <!-- Mensagem quando não há trabalhos cadastrados -->
+        <div class="empty-state">
+            <div class="empty-icon">
+                <i class="fas fa-images"></i>
+            </div>
+            <h3>Em breve, novos trabalhos!</h3>
+            <p>Estamos preparando uma galeria incrível com nossos melhores trabalhos.</p>
+            <p>Enquanto isso, que tal conhecer nossos serviços?</p>
+            <a href="{% url 'home' %}#servicos" class="btn btn-primary">
+                <i class="fas fa-spa"></i>
+                Ver Serviços
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Gostou do que viu?</h2>
+            <p class="cta-description">Agende agora e seja a próxima obra de arte!</p>
+            <div class="cta-buttons">
+                <a href="{% url 'reservar' %}" class="btn btn-cta">
+                    <i class="fas fa-calendar-check"></i>
+                    Fazer Reserva
+                </a>
+                <a href="https://wa.me/5593992104344" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="stat-number" data-target="{{ trabalhos.count }}">0</div>
+                <div class="stat-label">Trabalhos Realizados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Clientes Satisfeitas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-number" data-target="5">0</div>
+                <div class="stat-label">Avaliação Média</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Anos de Experiência</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

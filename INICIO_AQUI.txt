@@ -1,0 +1,134 @@
+╔══════════════════════════════════════════════════════════════╗
+║         🌸 TATY ESPAÇO DIVAS - GUIA RÁPIDO 🌸              ║
+╚══════════════════════════════════════════════════════════════╝
+
+✅ SERVIDOR JÁ INICIADO!
+   Acesse: http://localhost:8000/
+
+
+📋 PRÓXIMOS PASSOS:
+
+1️⃣ CRIAR USUÁRIO ADMINISTRADOR
+   Execute no terminal (em uma nova janela):
+   
+   python manage.py createsuperuser
+   
+   Preencha:
+   - Nome de usuário
+   - E-mail
+   - Senha (digite duas vezes)
+
+
+2️⃣ ACESSAR O ADMIN
+   URL: http://localhost:8000/admin/
+   
+   Use o usuário e senha criados no passo 1
+
+
+3️⃣ ADICIONAR SERVIÇOS
+   No admin:
+   - Clique em "Serviços"
+   - Clique em "Adicionar Serviço"
+   - Preencha os campos:
+     • Nome (ex: Manicure Completa)
+     • Descrição
+     • Imagem (faça upload)
+     • Preço (opcional)
+     • Destaque ✓ (para aparecer na home)
+     • Ordem (0, 1, 2...)
+   - Salve
+
+
+4️⃣ PERSONALIZAR INFORMAÇÕES
+   Edite nos templates:
+   
+   templates/base.html:
+   - Telefones no rodapé
+   - E-mails
+   - Links das redes sociais
+   
+   templates/contato.html:
+   - Telefones
+   - E-mails
+   - Endereço
+   - Link do mapa do Google Maps
+
+
+5️⃣ LOCAL DAS IMAGENS
+   As imagens dos serviços ficam em:
+   media/servicos/
+   
+   Coloque imagens de boa qualidade!
+
+
+📄 PÁGINAS DO SITE:
+
+✨ Landing Page........: http://localhost:8000/
+📞 Contato.............: http://localhost:8000/contato/
+📅 Reserve Já..........: http://localhost:8000/reservar/
+⚙️  Admin..............: http://localhost:8000/admin/
+
+
+🎨 DESIGN FEATURES:
+
+✓ Gradientes rosa e roxo vibrantes
+✓ Animações suaves ao scroll
+✓ Menu responsivo mobile
+✓ Formulários interativos
+✓ Sistema de mensagens
+✓ Cards com efeitos hover
+✓ Design moderno e elegante
+
+
+🔧 COMANDOS ÚTEIS:
+
+Parar o servidor:
+   Ctrl + C (no terminal onde está rodando)
+
+Iniciar novamente:
+   python manage.py runserver
+
+Criar backup do banco:
+   Copie o arquivo db.sqlite3
+
+
+💡 DICAS:
+
+• Use imagens quadradas (800x800px) para os serviços
+• Marque "Destaque" nos serviços que quer na home
+• Defina a "Ordem" para controlar a sequência
+• Teste em diferentes dispositivos (mobile, tablet)
+• Atualize telefones e endereços reais
+
+
+🎯 PARA EDITAR CORES:
+
+Abra: static/css/style.css
+Procure por ":root" no início
+Altere as variáveis CSS:
+
+--primary-color: #e91e63;     (rosa principal)
+--secondary-color: #9c27b0;   (roxo)
+--accent-color: #ff4081;      (rosa destaque)
+
+
+📱 REDES SOCIAIS:
+
+Edite em templates/base.html:
+Procure por "social-links" e adicione os links:
+• Instagram
+• Facebook  
+• WhatsApp
+
+
+🆘 PROBLEMAS?
+
+Veja os erros no terminal onde o servidor está rodando
+Pressione F12 no navegador para ver erros JavaScript
+
+
+═══════════════════════════════════════════════════════════════
+
+🌟 BOM TRABALHO! O site está pronto para uso! 🌟
+
+═══════════════════════════════════════════════════════════════

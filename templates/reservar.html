@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Reserve Já - Taty Espaço Divas{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title">Reserve seu Horário</h1>
+        <p class="page-subtitle">Agende agora mesmo seu atendimento e prepare-se para se sentir incrível!</p>
+    </div>
+</section>
+
+<!-- Reserva Section -->
+<section class="reservation-section">
+    <div class="container">
+        <div class="reservation-wrapper">
+            <!-- Informações Importantes -->
+            <div class="reservation-info">
+                <h2 class="reservation-info-title">
+                    <i class="fas fa-info-circle"></i>
+                    Informações Importantes
+                </h2>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Como Funciona</h3>
+                        <p>Preencha o formulário ao lado com seus dados e escolha o serviço desejado. Entraremos em contato para confirmar seu horário.</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Confirmação</h3>
+                        <p>Após o envio do formulário, você receberá uma confirmação por WhatsApp ou telefone em até 2 horas.</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Cancelamento</h3>
+                        <p>Caso precise cancelar, avise com pelo menos 24 horas de antecedência para que possamos disponibilizar o horário.</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Benefícios</h3>
+                        <p>Clientes frequentes ganham descontos especiais e acesso a promoções exclusivas!</p>
+                    </div>
+                </div>
+                
+                <div class="emergency-contact">
+                    <h3>Atendimento Imediato</h3>
+                    <p>Precisa agendar com urgência?</p>
+                    <a href="https://wa.me/5593992104344" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Chame no WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Formulário de Reserva -->
+            <div class="reservation-form-wrapper">
+                <div class="form-header">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h2>Faça sua Reserva</h2>
+                </div>
+                
+                <form method="post" class="reservation-form">
+                    {% csrf_token %}
+                    
+                    <div class="form-section">
+                        <h3 class="form-section-title">Dados Pessoais</h3>
+                        
+                        <div class="form-group">
+                            <label for="nome">
+                                <i class="fas fa-user"></i>
+                                Nome Completo *
+                            </label>
+                            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefone">
+                                    <i class="fas fa-phone"></i>
+                                    Telefone *
+                                </label>
+                                <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i>
+                                    E-mail *
+                                </label>
+                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3 class="form-section-title">Detalhes do Agendamento</h3>
+                        
+                        <div class="form-group">
+                            <label for="servico">
+                                <i class="fas fa-spa"></i>
+                                Serviço Desejado *
+                            </label>
+                            <select id="servico" name="servico" required>
+                                <option value="">Selecione um serviço</option>
+                                {% for servico in servicos %}
+                                <option value="{{ servico.id }}">
+                                    {{ servico.nome }}
+                                    {% if servico.preco %}
+                                    - R$ {{ servico.preco }}
+                                    {% endif %}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data_desejada">
+                                    <i class="fas fa-calendar"></i>
+                                    Data Desejada *
+                                </label>
+                                <input type="date" id="data_desejada" name="data_desejada" required min="{{ hoje }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="horario">
+                                    <i class="fas fa-clock"></i>
+                                    Horário *
+                                </label>
+                                <select id="horario" name="horario" required>
+                                    <option value="">Selecione um horário</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="12:30">12:30</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:30">16:30</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="17:30">17:30</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="18:30">18:30</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="observacoes">
+                                <i class="fas fa-comment"></i>
+                                Observações (Opcional)
+                            </label>
+                            <textarea id="observacoes" name="observacoes" rows="4" placeholder="Alguma informação adicional que gostaria de compartilhar? Alergias, preferências, etc."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <p class="form-note">
+                            <i class="fas fa-info-circle"></i>
+                            * Campos obrigatórios
+                        </p>
+                        <button type="submit" class="btn btn-submit">
+                            <i class="fas fa-check-circle"></i>
+                            Confirmar Reserva
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Serviços Populares -->
+<section class="popular-services">
+    <div class="container">
+        <h2 class="section-title text-center">
+            <span class="title-decoration">Serviços Mais Procurados</span>
+        </h2>
+        
+        <div class="popular-grid">
+            <div class="popular-card">
+                <div class="popular-icon">
+                    <i class="fas fa-hand-sparkles"></i>
+                </div>
+                <h3>Manicure Completa</h3>
+                <p>Cuidado total para suas unhas com design personalizado</p>
+            </div>
+            
+            <div class="popular-card">
+                <div class="popular-icon">
+                    <i class="fas fa-face-smile"></i>
+                </div>
+                <h3>Limpeza Facial</h3>
+                <p>Pele renovada e radiante com tratamento profissional</p>
+            </div>
+            
+            <div class="popular-card">
+                <div class="popular-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Drenagem Linfática</h3>
+                <p>Relaxamento e bem-estar para seu corpo</p>
+            </div>
+            
+            <div class="popular-card">
+                <div class="popular-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Design de Sobrancelhas</h3>
+                <p>Realce a beleza do seu olhar</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Taty Espaço Divas - Beleza e Bem-Estar{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="hero-subtitle">Bem-vinda ao</span>
+            Taty Espaço Divas
+        </h1>
+        <p class="hero-description">Onde a beleza encontra o cuidado. Transforme-se em uma verdadeira diva!</p>
+        <div class="hero-buttons">
+            <a href="{% url 'reservar' %}" class="btn btn-primary">
+                <i class="fas fa-calendar-check"></i>
+                Agende seu Horário
+            </a>
+            <a href="{% url 'contato' %}" class="btn btn-secondary">
+                <i class="fas fa-phone"></i>
+                Entre em Contato
+            </a>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <span>Role para descobrir</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Sobre Section -->
+<section class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">
+                    <span class="title-decoration">Sobre Nós</span>
+                </h2>
+                <p class="section-description">
+                    No <strong>Taty Espaço Divas</strong>, acreditamos que cada mulher merece se sentir especial e valorizada. 
+                    Com anos de experiência em beleza e estética, oferecemos serviços de alta qualidade em um ambiente acolhedor e sofisticado.
+                </p>
+                <p class="section-description">
+                    Nossa missão é realçar sua beleza natural e proporcionar momentos de relaxamento e bem-estar. 
+                    Utilizamos produtos de primeira linha e técnicas modernas para garantir os melhores resultados.
+                </p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-award"></i>
+                        <span>Profissionais Qualificadas</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Atendimento Personalizado</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-star"></i>
+                        <span>Produtos Premium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Serviços Section -->
+<section class="services-section">
+    <div class="container">
+        <h2 class="section-title text-center">
+            <span class="title-decoration">Nossos Serviços</span>
+        </h2>
+        <p class="section-subtitle text-center">Descubra nossos tratamentos exclusivos para você</p>
+        
+        <div class="services-grid">
+            {% if servicos %}
+                {% for servico in servicos %}
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-image">
+                        {% if servico.imagem %}
+                        <img src="{{ servico.imagem.url }}" alt="{{ servico.nome }}">
+                        {% else %}
+                        <div class="service-image-placeholder">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        {% endif %}
+                        <div class="service-overlay">
+                            <a href="{% url 'reservar' %}" class="service-btn">
+                                <i class="fas fa-calendar-plus"></i>
+                                Agendar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">{{ servico.nome }}</h3>
+                        <p class="service-description">{{ servico.descricao }}</p>
+                        {% if servico.preco %}
+                        <p class="service-price">A partir de R$ {{ servico.preco }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Serviços padrão caso não haja nenhum cadastrado -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-image">
+                        <div class="service-image-placeholder">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <div class="service-overlay">
+                            <a href="{% url 'reservar' %}" class="service-btn">
+                                <i class="fas fa-calendar-plus"></i>
+                                Agendar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Manicure & Pedicure</h3>
+                        <p class="service-description">Unhas perfeitas com esmaltação tradicional, gel ou acrílica. Cuidado completo para suas mãos e pés.</p>
+                        <p class="service-price">A partir de R$ 50,00</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-image">
+                        <div class="service-image-placeholder">
+                            <i class="fas fa-face-smile"></i>
+                        </div>
+                        <div class="service-overlay">
+                            <a href="{% url 'reservar' %}" class="service-btn">
+                                <i class="fas fa-calendar-plus"></i>
+                                Agendar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Limpeza Facial</h3>
+                        <p class="service-description">Tratamento completo de limpeza profunda, hidratação e revitalização da pele do rosto.</p>
+                        <p class="service-price">A partir de R$ 80,00</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image">
+                        <div class="service-image-placeholder">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <div class="service-overlay">
+                            <a href="{% url 'reservar' %}" class="service-btn">
+                                <i class="fas fa-calendar-plus"></i>
+                                Agendar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Drenagem Linfática</h3>
+                        <p class="service-description">Massagem terapêutica que ajuda a reduzir inchaços, melhorar a circulação e eliminar toxinas.</p>
+                        <p class="service-price">A partir de R$ 100,00</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Pronta para se sentir uma Diva?</h2>
+            <p class="cta-description">Agende seu horário agora e descubra o melhor cuidado para você!</p>
+            <a href="{% url 'reservar' %}" class="btn btn-cta">
+                <i class="fas fa-calendar-check"></i>
+                Fazer minha Reserva
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Depoimentos Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title text-center">
+            <span class="title-decoration">O que Nossas Clientes Dizem</span>
+        </h2>
+        <p class="section-subtitle text-center">Avaliações reais de quem já foi atendida</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-image-wrapper">
+                    <img src="{% static 'images/depoimentos/depoimento1.jpg' %}" alt="Depoimento 1" class="testimonial-screenshot">
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-image-wrapper">
+                    <img src="{% static 'images/depoimentos/depoimento2.jpg' %}" alt="Depoimento 2" class="testimonial-screenshot">
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-image-wrapper">
+                    <img src="{% static 'images/depoimentos/depoimento3.jpg' %}" alt="Depoimento 3" class="testimonial-screenshot">
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonials-cta">
+            <p>Quer ser a próxima cliente satisfeita?</p>
+            <a href="{% url 'reservar' %}" class="btn btn-primary">
+                <i class="fas fa-calendar-check"></i>
+                Agende Agora
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

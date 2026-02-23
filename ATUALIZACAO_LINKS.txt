@@ -1,0 +1,83 @@
+╔══════════════════════════════════════════════════════════════╗
+║      ✨ ATUALIZAÇÃO - LINKS E DEPOIMENTOS ✨                ║
+╚══════════════════════════════════════════════════════════════╝
+
+🎉 O QUE FOI ATUALIZADO:
+
+✅ Links Sociais Configurados
+✅ Seção de Depoimentos com Prints  
+✅ WhatsApp Adicionado
+✅ Facebook Removido
+✅ Informações de Contato Atualizadas
+
+
+📱 LINKS ATIVOS:
+
+Instagram: https://www.instagram.com/taty.espaco_divas/
+WhatsApp: +55 93 99210-4344
+
+
+🖼️ COMO ADICIONAR PRINTS DE DEPOIMENTOS:
+
+1️⃣ Tire screenshots dos depoimentos (Instagram/WhatsApp)
+
+2️⃣ Renomeie os arquivos para:
+   • depoimento1.jpg
+   • depoimento2.jpg  
+   • depoimento3.jpg
+
+3️⃣ Cole na pasta:
+   static/images/depoimentos/
+
+4️⃣ Atualize o site (F5)
+
+
+📐 FORMATO DOS PRINTS:
+
+✓ Proporção: 16:9 (horizontal)
+✓ Tamanho: 1920x1080 pixels (ideal)
+✓ Formato: JPG ou PNG
+✓ Peso: Até 1 MB cada
+
+
+📚 GUIAS DISPONÍVEIS:
+
+📄 COMO_ADICIONAR_PRINTS.md - Guia completo de prints
+📄 README.md - Documentação geral
+📄 COMANDOS.md - Comandos úteis
+📄 GUIA_IMAGENS.md - Guia de imagens de serviços
+
+
+🎨 ONDE OS LINKS APARECEM:
+
+✓ Rodapé do site (todas as páginas)
+✓ Página de Contato
+✓ Página de Reservas (WhatsApp)
+✓ Botões funcionais com links reais
+
+
+⚡ PRÓXIMOS PASSOS:
+
+1. Adicionar prints reais de depoimentos
+2. Testar todos os links sociais
+3. Atualizar endereço se necessário
+4. Adicionar serviços no admin
+
+
+🔗 LINKS IMPORTANTES:
+
+Site: http://localhost:8000/
+Admin: http://localhost:8000/admin/
+Instagram: https://www.instagram.com/taty.espaco_divas/
+WhatsApp: https://wa.me/5593992104344
+
+
+💡 DICA:
+
+Os placeholders rosa/roxo aparecem até você adicionar
+os prints reais. Substitua-os o quanto antes!
+
+
+═══════════════════════════════════════════════════════════════
+
+Tudo pronto! Adicione os prints e está perfeito! 🌸

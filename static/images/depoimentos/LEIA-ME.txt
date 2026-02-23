@@ -1,0 +1,45 @@
+╔══════════════════════════════════════════════════════════════╗
+║           📸 ADICIONE SEUS PRINTS AQUI! 📸                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+📍 COLE OS PRINTS DOS DEPOIMENTOS NESTA PASTA
+
+Os arquivos devem ter EXATAMENTE estes nomes:
+
+  ✅ depoimento1.jpg  (ou .png)
+  ✅ depoimento2.jpg  (ou .png)
+  ✅ depoimento3.jpg  (ou .png)
+
+
+📐 FORMATO DOS PRINTS:
+
+  • Proporção: 16:9 (horizontal)
+  • Tamanho ideal: 1920x1080 pixels
+  • Formato: JPG ou PNG
+  • Peso máximo: 1 MB cada
+
+
+🎯 PASSOS RÁPIDOS:
+
+1. Tire screenshots dos depoimentos do Instagram/WhatsApp
+2. Renomeie para: depoimento1.jpg, depoimento2.jpg, depoimento3.jpg
+3. Cole NESTA pasta
+4. Atualize o site (F5)
+
+
+📚 GUIA COMPLETO:
+
+Abra o arquivo na raiz do projeto:
+COMO_ADICIONAR_PRINTS.md
+
+
+💡 DICA:
+
+Use prints reais de clientes satisfeitas!
+Sempre peça permissão antes de publicar.
+
+
+═══════════════════════════════════════════════════════════════
+
+Qualquer dúvida, consulte: COMO_ADICIONAR_PRINTS.md
+

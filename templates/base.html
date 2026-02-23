@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Taty Espaço Divas{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="{% url 'home' %}" class="logo">
+                    <i class="fas fa-spa"></i>
+                    <span>Taty Espaço Divas</span>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Início</a></li>
+                    <li><a href="{% url 'trabalhos' %}" class="{% if request.resolver_match.url_name == 'trabalhos' %}active{% endif %}">Trabalhos</a></li>
+                    <li><a href="{% url 'contato' %}" class="{% if request.resolver_match.url_name == 'contato' %}active{% endif %}">Contato</a></li>
+                    <li><a href="{% url 'reservar' %}" class="btn-reservar {% if request.resolver_match.url_name == 'reservar' %}active{% endif %}">Reserve Já</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mensagens -->
+    {% if messages %}
+    <div class="messages-container">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <i class="fas fa-check-circle"></i>
+            {{ message }}
+            <button class="close-alert">&times;</button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Conteúdo Principal -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-spa"></i> Taty Espaço Divas</h3>
+                    <p>Beleza e bem-estar em um só lugar.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/taty.espaco_divas/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5593992104344" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Nossos Serviços</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Manicure & Pedicure</li>
+                        <li><i class="fas fa-check"></i> Limpeza Facial</li>
+                        <li><i class="fas fa-check"></i> Drenagem Linfática</li>
+                        <li><i class="fas fa-check"></i> Design de Sobrancelhas</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Horário de Atendimento</h4>
+                    <ul>
+                        <li><i class="far fa-clock"></i> Segunda a Sexta: 9h às 19h</li>
+                        <li><i class="far fa-clock"></i> Sábado: 9h às 17h</li>
+                        <li><i class="far fa-clock"></i> Domingo: Fechado</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (93) 99210-4344</li>
+                        <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
+                        <li><i class="fab fa-instagram"></i> @taty.espaco_divas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Taty Espaço Divas. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
