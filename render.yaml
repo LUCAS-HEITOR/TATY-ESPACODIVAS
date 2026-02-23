@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: taty-espacodivas
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn taty_espacodivas.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: taty_espacodivas_db
+          property: connectionString
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+
+databases:
+  - name: taty_espacodivas_db
+    databaseName: taty_espacodivas
+    user: taty_user
