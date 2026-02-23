@@ -2,7 +2,7 @@ services:
   - type: web
     name: taty-espacodivas
     env: python
-    buildCommand: "./build.sh"
+    buildCommand: "bash build.sh"
     startCommand: "gunicorn taty_espacodivas.wsgi"
     envVars:
       - key: SECRET_KEY

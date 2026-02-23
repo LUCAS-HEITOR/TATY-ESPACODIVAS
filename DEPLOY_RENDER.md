@@ -45,7 +45,7 @@ git push origin main
 - **Environment:** `Python 3`
 - **Region:** `Oregon (US West)` ou mais próximo
 - **Branch:** `main`
-- **Build Command:** `./build.sh`
+- **Build Command:** `bash build.sh`
 - **Start Command:** `gunicorn taty_espacodivas.wsgi`
 
 **Instance Type:**
