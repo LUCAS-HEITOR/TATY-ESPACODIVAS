@@ -1,7 +1,7 @@
 services:
   - type: web
     name: taty-espacodivas
-    env: python
+    runtime: python
     buildCommand: "bash build.sh"
     startCommand: "gunicorn taty_espacodivas.wsgi"
     envVars:
