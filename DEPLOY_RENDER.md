@@ -46,7 +46,7 @@ git push origin main
 - **Region:** `Oregon (US West)` ou mais próximo
 - **Branch:** `main`
 - **Build Command:** `./build.sh`
-- **Start Command:** `gunicorn taty_espacodivas.wsgi:application`
+- **Start Command:** `gunicorn taty_espacodivas.wsgi`
 
 **Instance Type:**
 - Selecione: **Free** (gratuito)
